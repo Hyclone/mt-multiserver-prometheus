@@ -1,7 +1,7 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"net/http"
 	"time"
 
@@ -29,7 +29,7 @@ var (
 
 
 func init() {
-	fmt.Println("Starting HTTP prometheus endpoint on port 2112...")
+	log.Println("[mt-multiserver-prometheus] Starting HTTP Prometheus endpoint on port 2112...")
 	recordMetrics()
 
 	http.Handle("/metrics", promhttp.Handler())
