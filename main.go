@@ -29,11 +29,9 @@ var (
 
 
 func init() {
-	fmt.Println("Hello from plugin!")
+	fmt.Println("Starting HTTP prometheus endpoint on port 2112...")
 	recordMetrics()
 
 	http.Handle("/metrics", promhttp.Handler())
     go http.ListenAndServe(":2112", nil)
-
-	time.Sleep(20 * time.Second)
 }
