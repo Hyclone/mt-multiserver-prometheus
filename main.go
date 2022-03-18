@@ -13,6 +13,7 @@ import (
 func recordMetrics() {
 	go func() {
 		for {
+			fmt.Println("Increasing")
 			playerCount.Inc()
 			time.Sleep(2 * time.Second)
 		}
@@ -33,4 +34,6 @@ func init() {
 
 	http.Handle("/metrics", promhttp.Handler())
     go http.ListenAndServe(":2112", nil)
+
+	time.Sleep(20 * time.Second)
 }
