@@ -14,7 +14,6 @@ import (
 func recordMetrics() {
 	go func() {
 		for {
-			fmt.Println("Increasing")
 			playerCount.Set(float64(len(proxy.Players())))
 			time.Sleep(5 * time.Second)
 		}
